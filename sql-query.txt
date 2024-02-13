@@ -1,0 +1,18 @@
+create table notification (
+	id integer NOT null primary key,
+	title varchar(40) NOT null,
+	timestamp timestamp default current_timestamp
+);
+
+
+INSERT INTO notification (id, title)
+    VALUES (1,'New Deal Added');
+
+
+
+
+CREATE PUBLICATION mypublication FOR TABLE notification
+
+
+wal_level = logical
+docker exec -it realtime-notification-db-1 cat /var/lib/postgresql/data/postgresql.conf
